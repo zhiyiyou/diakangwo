@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Cotnent-Type" content="text/html; charset=utf-8" />
+<title>登陆</title>
+<style type="text/css">
+	body {
+		font-size: 12px;
+	}
+	#pupload {
+		width: 600px;
+		border: 1px soild #ccc;
+		padding: 5px 0 5px 0;
+	}
+	#pickfiles {
+		color: rgba(255,255,255,1);
+		background-color: rgba(219,87,5,1);
+		padding: 4px;
+		border-radius: 8px;
+		box-shadow: 0px 1px 0px rgba(219,31,5,1), 0px 6px 8px rgba(0,0,0,.7);
+		font-size: 24px;
+		text-align: center;
+		transition: all .1s ease;
+	}
+	
+	#image-wrapper {
+		width: 600px;
+		height: 320px;
+		margin-top: 20px;
+		border-radius: 10px;
+		border: 3px dotted #ccc;
+	}
+	.image {
+		marign: auto auto;
+		width: 100%;
+		height: 100%;
+	}
+	.image .prepare-img {
+		position:absolute;
+		margin-left:236px;
+		margin-top:108px;
+		opacity: 0.3;
+	}
+	.uploaded-img {
+		float: left;
+		width: 100px;
+		height: 100px;
+		padding: 10px;
+	}
+	.img-box {
+		float: left;
+		width: 100px;
+		height: 100px;
+		padding: 25px;
+	}
+	.img-box img {
+		width: 100px;
+		height: 100px;
+	}
+	
+	.img_title {
+		float: left;
+		width: 100%;
+		text-align: center;
+	}
+	.img-box a {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		margin-top: -10px;
+		margin-left: -10px;
+	}
+	.img-box a img {
+		width: 20px !important;
+		height: 20px !important;
+	}
+</style>
+</head>
+<body>
+	<h2>登陆</h2>
+	<form th:action="@{/check_login}" method="post">
+		用户名: <input type="text" name="username" /><br /> 密码: <input
+			type="password" name="password" /><br /> <input type="submit"
+			value="登陆" />
+	</form>
+	<hr />
+	<h3>上传图片</h3>
+	<div id="container">
+		<input type="button" value="选择文件" id="pickfiles"/>
+		<input type="hidden" id="current_id" value="23"/>
+	</div>
+	<div id="image-wrapper">
+		<div class="image">
+			<img class="prepare-img" th:src="@{/resources/images/image.png}"/>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript"
+	th:src="@{/resources/js/jquery-1.10.2.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/resources/js/plupload/plupload.full.min.js}"></script>
+<script type="text/javascript" th:src="@{/resources/js/upload.js}"></script>
+</html>
